@@ -1,9 +1,8 @@
-# Disable Scroll Hero Plan
+# Mobile Scroll Lock Enhancement
 
-**Step 1**: ✓ Edit App.tsx - add scrollLock state + useEffect disable/enable body scroll
-**Step 2**: ✓ Edit Hero.tsx - on "Lihat Projects" click → enable scroll + smooth scroll to projects
-**Step 3**: Test dengan `npm run dev` di http://localhost:5173
+**Step 1:** Update App.tsx scroll lock useEffect → position:fixed + touch-action:none for mobile
+**Step 2:** Test mobile browser no touch scroll before "Lihat Projects"
+**Step 3:** `npm run build` verify
 
-**COMPLETE** 🎉
-
+- [x] Step 1 Complete
 

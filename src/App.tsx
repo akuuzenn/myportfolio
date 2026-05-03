@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -30,14 +30,36 @@ function App() {
   }, [darkMode])
 
   useEffect(() => {
+    let scrollPosition = 0
+
     if (scrollLocked) {
+      // Mobile-safe scroll lock
+      scrollPosition = window.pageYOffset
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollPosition}px`
+      document.body.style.width = '100%'
       document.body.style.overflow = 'hidden'
+      document.body.style.touchAction = 'none'
+      document.documentElement.style.overflow = 'hidden'
     } else {
+      // Unlock scroll
+      const top = document.body.style.top
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
       document.body.style.overflow = 'auto'
+      document.body.style.touchAction = ''
+      document.documentElement.style.overflow = ''
+      window.scrollTo(0, parseInt(top || '0') * -1)
     }
 
     return () => {
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
       document.body.style.overflow = 'auto'
+      document.body.style.touchAction = ''
+      document.documentElement.style.overflow = ''
     }
   }, [scrollLocked])
 
