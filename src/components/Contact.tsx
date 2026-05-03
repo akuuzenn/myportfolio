@@ -1,20 +1,26 @@
 import { motion } from 'framer-motion'
-import { Mail, Github, Twitter } from 'lucide-react'
+import { Instagram, Github, Phone } from 'lucide-react'
 import { Button } from './ui/Button'
 
 export default function Contact() {
   const contactInfo = [
     {
-      icon: Mail,
-      label: 'Email',
-      value: 'zenn@example.com',
-      href: 'mailto:zenn@example.com'
+      icon: Instagram,
+      label: 'Instagram',
+      value: '@akuuzenn',
+      href: 'https://www.instagram.com/__akuuzenn/'
     },
     {
       icon: Github,
       label: 'GitHub',
-      value: '@zenn-dev',
-      href: 'https://github.com/zenn-dev'
+      value: '@akuuzenn',
+      href: 'https://github.com/akuuzenn'
+    },
+    {
+      icon: Phone,
+      label: 'Whatsapp',
+      value: '088242311963',
+      href: 'https://wa.me/6288242311963'
     }
   ]
 
@@ -57,7 +63,7 @@ export default function Contact() {
                 <contact.icon className="h-8 w-8 text-primary mr-4 flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <div>
                   <p className="text-sm font-medium text-muted-foreground mb-1">{contact.label}</p>
-                  <a href={contact.href} className="font-semibold hover:text-primary transition-colors">
+                  <a href={contact.href} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors">
                     {contact.value}
                   </a>
                 </div>
@@ -74,7 +80,10 @@ export default function Contact() {
             <div className="bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-2xl p-12 text-center group hover:shadow-2xl hover:shadow-primary/10 transition-all">
               <div className="w-24 h-24 bg-gradient-to-r from-primary to-secondary rounded-2xl mx-auto mb-8 shadow-lg group-hover:scale-105 transition-transform" />
               <h3 className="text-2xl font-bold mb-4">Ready for Next Project?</h3>
-              <Button size="lg" className="w-full">
+              <Button className="w-full px-8 py-4 text-lg" onClick={() => {
+                const hero = document.querySelector('#hero')
+                hero?.scrollIntoView({ behavior: 'smooth' })
+              }}>
                 Get In Touch
               </Button>
             </div>
@@ -84,4 +93,3 @@ export default function Contact() {
     </section>
   )
 }
-

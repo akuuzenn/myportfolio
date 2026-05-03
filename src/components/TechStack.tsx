@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, Database, Code, Smartphone, Server } from 'lucide-react'
+import { Database, Code, Smartphone, Server } from 'lucide-react'
 
 const techStack = [
   { name: 'Laravel', icon: Server, color: 'text-red-500' },

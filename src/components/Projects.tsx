@@ -62,10 +62,10 @@ export default function Projects() {
               </div>
 
               <div className="flex gap-3 pt-4 border-t border-border">
-                <a href="#" className="flex-1 text-center py-3 px-4 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all group">
-                  Live Demo <ExternalLink className="h-4 w-4 ml-2 inline group-hover:translate-x-1 transition-transform" />
-                </a>
-                <a href="#" className="p-3 bg-muted rounded-lg hover:bg-muted-foreground/20 transition-colors">
+                <button disabled className="flex-1 text-center py-3 px-4 bg-primary text-primary-foreground rounded-lg font-medium cursor-not-allowed opacity-75">
+                  Live Demo Soon <ExternalLink className="h-4 w-4 ml-2" />
+                </button>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="p-3 bg-muted rounded-lg hover:bg-muted-foreground/20 transition-colors flex items-center justify-center">
                   <Github className="h-5 w-5" />
                 </a>
               </div>
