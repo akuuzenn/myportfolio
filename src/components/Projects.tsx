@@ -19,7 +19,7 @@ export default function Projects() {
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
         </motion.div>
 
-          <div className="grid grid-cols-1 gap-4 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -27,27 +27,26 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-              className="group bg-background border rounded-lg md:rounded-2xl p-3 md:p-8 shadow-md md:shadow-xl hover:shadow-lg md:hover:shadow-2xl transition-all duration-300 overflow-hidden"
+              whileHover={{ y: -10 }}
+              className="group bg-background border rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden h-full"
             >
-              <div className="relative mb-3 md:mb-6 overflow-hidden rounded-lg md:rounded-xl group-hover:scale-105 transition-transform duration-300">
+              <div className="relative mb-6 overflow-hidden rounded-xl group-hover:scale-105 transition-transform duration-300">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-36 md:h-48 object-cover rounded-md md:rounded-lg" 
+                  className="w-full h-48 object-cover" 
                   loading="lazy"
                 />
-                <div className="absolute bottom-1 md:hidden left-1 right-1 bg-background/95 backdrop-blur-sm p-1.5 rounded-md">
-                  <h3 className="font-bold text-sm">{project.title}</h3>
+                {/* Mobile name overlay */}
+                <div className="absolute bottom-3 left-3 right-3 md:hidden bg-background/95 backdrop-blur-sm p-3 rounded-lg">
+                  <h3 className="font-bold text-lg">{project.title}</h3>
                 </div>
               </div>
               
               {/* Desktop title */}
-              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-4 group-hover:text-primary transition-colors hidden md:block">{project.title}</h3>
-
-              <p className="text-muted-foreground text-sm md:text-base mb-3 md:mb-6 leading-relaxed line-clamp-2 md:line-clamp-none">{project.description}</p>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors hidden md:block">{project.title}</h3>
               
-              <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
+              <p className="text-muted-foreground mb-4 md:mb-6 leading-relaxed text-sm md:text-base">{project.description}</p>
               
               <div className="mb-6">
                 <h4 className="font-semibold mb-3 text-primary">Tech Stack:</h4>
@@ -60,11 +59,10 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Fitur Utama hidden on mobile */}
-              <div className="hidden md:block mb-8">
+              <div className="mb-8 hidden md:block">
                 <h4 className="font-semibold mb-3 text-primary">Fitur Utama:</h4>
                 <ul className="space-y-2">
-                  {project.features.map((feature) => (
+                  {project.features.slice(0, 3).map((feature) => (
                     <li key={feature} className="flex items-start">
                       <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                       {feature}
@@ -73,12 +71,12 @@ export default function Projects() {
                 </ul>
               </div>
 
-              <div className="flex gap-1.5 pt-2 border-t border-border/30 mt-auto">
-                <button disabled className="flex-1 py-1.5 px-2 bg-primary text-primary-foreground rounded text-xs font-medium cursor-not-allowed opacity-75">
-                  Live <ExternalLink className="h-3 w-3 ml-1 inline" />
+              <div className="flex gap-3 pt-4 border-t border-border">
+                <button disabled className="flex-1 text-center py-2 md:py-3 px-4 bg-primary text-primary-foreground rounded-lg font-medium text-sm md:text-base cursor-not-allowed opacity-75">
+                  Live Demo Soon <ExternalLink className="h-4 w-4 ml-2" />
                 </button>
-                <a href={project.github || '#'} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-muted rounded hover:bg-muted-foreground/20 transition-colors flex items-center justify-center">
-                  <Github className="h-4 w-4" />
+                <a href={project.github || '#'} target="_blank" rel="noopener noreferrer" className="p-3 bg-muted rounded-lg hover:bg-muted-foreground/20 transition-colors flex items-center justify-center">
+                  <Github className="h-5 w-5" />
                 </a>
               </div>
             </motion.div>

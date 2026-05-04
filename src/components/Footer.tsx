@@ -37,20 +37,20 @@ export default function Footer() {
           >
             <h4 className="text-lg font-bold text-foreground">Quick Links</h4>
             <nav className="flex flex-col space-y-2">
-              <a href="#hero" className="text-sm hover:text-primary transition-all duration-300 hover:translate-x-2 group">
-                <span className="group-hover:pr-2 transition-all">Home</span>
+              <a href="#hero" className="text-sm hover:text-primary transition-all duration-300 hover:translate-x-2">
+                Home
               </a>
-              <a href="#about" className="text-sm hover:text-primary transition-all duration-300 hover:translate-x-2 group">
-                <span className="group-hover:pr-2 transition-all">About</span>
+              <a href="#about" className="text-sm hover:text-primary transition-all duration-300 hover:translate-x-2">
+                About
               </a>
-              <a href="#techstack" className="text-sm hover:text-primary transition-all duration-300 hover:translate-x-2 group">
-                <span className="group-hover:pr-2 transition-all">Tech Stack</span>
+              <a href="#techstack" className="text-sm hover:text-primary transition-all duration-300 hover:translate-x-2">
+                Tech Stack
               </a>
-              <a href="#projects" className="text-sm hover:text-primary transition-all duration-300 hover:translate-x-2 group">
-                <span className="group-hover:pr-2 transition-all">Projects</span>
+              <a href="#projects" className="text-sm hover:text-primary transition-all duration-300 hover:translate-x-2">
+                Projects
               </a>
-              <a href="#contact" className="text-sm hover:text-primary transition-all duration-300 hover:translate-x-2 group">
-                <span className="group-hover:pr-2 transition-all">Contact</span>
+              <a href="#contact" className="text-sm hover:text-primary transition-all duration-300 hover:translate-x-2">
+                Contact
               </a>
             </nav>
           </motion.div>
@@ -66,25 +66,25 @@ export default function Footer() {
             <div>
               <h4 className="text-lg font-bold text-foreground mb-4">Let's Connect</h4>
               <div className="flex flex-col space-y-2 mb-6">
-                <a href="mailto:orewaazenn@gmail.com" className="flex items-center space-x-2 hover:text-primary transition-colors text-sm">
+                <a href="mailto:hello@zenn.dev" className="flex items-center space-x-2 hover:text-primary transition-colors text-sm">
                   <Mail className="h-4 w-4" />
-                  <span>orewaazenn@gmail.com</span>
+                  <span>hello@zenn.dev</span>
                 </a>
               </div>
             </div>
             <div className="flex justify-center lg:justify-end space-x-4">
-              <a href="https://github.com/zenn-dev" target="_blank" rel="noopener noreferrer" className="group p-3 rounded-xl border hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:rotate-3 shadow-lg">
-                <Github className="h-6 w-6 group-hover:-translate-y-0.5 transition-transform" />
+              <a href="https://github.com/zenn-dev" target="_blank" rel="noopener noreferrer" className="group p-3 rounded-xl border hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 shadow-lg">
+                <Github className="h-6 w-6" />
               </a>
-              <a href="https://instagram.com/zenn_dev" target="_blank" rel="noopener noreferrer" className="group p-3 rounded-xl border hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:rotate-3 shadow-lg">
-                <Instagram className="h-6 w-6 group-hover:-translate-y-0.5 transition-transform" />
+              <a href="https://instagram.com/zenn_dev" target="_blank" rel="noopener noreferrer" className="group p-3 rounded-xl border hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 shadow-lg">
+                <Instagram className="h-6 w-6" />
               </a>
-              <a href="https://wa.me/+6288242311963" target="_blank" rel="noopener noreferrer" className="group p-3 rounded-xl border hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:rotate-3 shadow-lg">
-                <Phone className="h-6 w-6 group-hover:-translate-y-0.5 transition-transform" />
+              <a href="https://wa.me/628123456789" target="_blank" rel="noopener noreferrer" className="group p-3 rounded-xl border hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 shadow-lg">
+                <Phone className="h-6 w-6" />
               </a>
             </div>
             <p className="text-xs text-muted-foreground border-t border-border/50 pt-4 mt-4">
-              © 2024 Zenn. Dibuat dengan menggunakan Next.js & Tailwind CSS.
+              © 2024 Zenn. Dibuat dengan menggunakan React & Tailwind CSS.
             </p>
           </motion.div>
         </div>
