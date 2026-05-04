@@ -6,12 +6,19 @@ import About from './components/About'
 import TechStack from './components/TechStack'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
   const [scrollLocked, setScrollLocked] = useState(true)
 
   useEffect(() => {
+    // Scroll to top immediately on mount (fixes smooth behavior delay)
+    const scrollTop = () => {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }
+    scrollTop()
+    
     // Load theme from localStorage or default to system preference
     const saved = localStorage.getItem('theme')
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -72,6 +79,7 @@ function App() {
         <TechStack />
         <Projects />
         <Contact />
+        <Footer />
       </main>
     </div>
   )

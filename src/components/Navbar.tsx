@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import ThemeToggle from './ui/ThemeToggle'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface NavbarProps {
   darkMode: boolean
@@ -30,7 +31,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
         <div className="flex items-center">
           <a 
             href="#hero" 
-            className="font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" 
+            className="font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:scale-105 transition-transform" 
             onClick={(e) => { e.preventDefault(); scrollToSection('hero') }}
           >
             Zenn
@@ -38,47 +39,74 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
         </div>
 
         <div className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <a
+          {navItems.map((item, index) => (
+            <motion.a
               key={item.id}
               href={`#${item.id}`}
-              className="text-sm font-medium transition-colors hover:text-primary/80"
+              className="text-sm font-medium transition-all duration-300 hover:text-primary/80 hover:translate-y-[-2px] relative group"
               onClick={(e) => { e.preventDefault(); scrollToSection(item.id) }}
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              whileHover={{ scale: 1.05 }}
             >
               {item.label}
-            </a>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300 origin-left"></span>
+            </motion.a>
           ))}
         </div>
 
         <div className="flex items-center space-x-2">
           <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
-          <button 
-            className="md:hidden h-9 w-9 p-0 rounded-lg border hover:bg-muted transition-colors"
+          <motion.button 
+            className="md:hidden h-10 w-10 p-0 rounded-xl border shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 bg-background hover:bg-muted"
             onClick={() => setMobileOpen(!mobileOpen)}
+            initial={{ scale: 0.95 }}
+            animate={{ scale: 1 }}
+            whileHover={{ rotate: mobileOpen ? 90 : 0 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+            <motion.div
+              animate={{ rotate: mobileOpen ? 90 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {mobileOpen ? <X className="h-5 w-5 mx-auto" /> : <Menu className="h-5 w-5 mx-auto" />}
+            </motion.div>
+          </motion.button>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-background border-t border-border">
-          <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="text-lg font-medium transition-colors hover:text-primary py-2"
-                onClick={(e) => { e.preventDefault(); scrollToSection(item.id) }}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Mobile menu with slide/slide animation */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div 
+            className="md:hidden bg-background/95 backdrop-blur border-t border-border overflow-hidden"
+            initial={{ opacity: 0, height: 0, y: -20 }}
+            animate={{ opacity: 1, height: "auto", y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -20 }}
+            transition={{ duration: 0.3, type: "spring" }}
+          >
+            <div className="container mx-auto px-4 py-8">
+              <div className="flex flex-col space-y-4 divide-y divide-border">
+                {navItems.map((item, index) => (
+                  <motion.a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="text-lg font-semibold py-4 first:pt-0 last:pb-0 hover:text-primary transition-colors block"
+                    onClick={(e) => { e.preventDefault(); scrollToSection(item.id) }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.2, delay: index * 0.05 }}
+                  >
+                    {item.label}
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }
-

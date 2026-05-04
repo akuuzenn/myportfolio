@@ -1,8 +1,13 @@
-# Mobile Scroll Lock Enhancement
+# Mobile Projects Update Task
 
-**Step 1:** Update App.tsx scroll lock useEffect → position:fixed + touch-action:none for mobile
-**Step 2:** Test mobile browser no touch scroll before "Lihat Projects"
-**Step 3:** `npm run build` verify
+## Steps:
+## Portfolio Updates
 
-- [x] Step 1 Complete
+## Portfolio Updates COMPLETE
+
+✅ Mobile Projects: Images + name overlay, compact cards (shorter for mobile)
+✅ Navbar hamburger menu functional (smooth scroll)
+✅ Page refresh scrolls to home (#hero) automatically via App.tsx useEffect
+
+Dev server: http://localhost:5174/ - Test refresh + mobile!
 

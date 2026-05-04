@@ -9,9 +9,11 @@ interface HeroProps {
 export default function Hero({ onUnlockScroll }: HeroProps) {
   const handleUnlockScroll = () => {
     onUnlockScroll()
-    // Smooth scroll to projects after unlock
-    const projectsElement = document.getElementById('projects')
-    projectsElement?.scrollIntoView({ behavior: 'smooth' })
+    // Instant scroll to projects after unlock (single click)
+    setTimeout(() => {
+      const projectsElement = document.getElementById('projects')
+      projectsElement?.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
   }
 
   return (
