@@ -66,9 +66,9 @@ export default function Footer() {
             <div>
               <h4 className="text-lg font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-3">Let's Connect</h4>
               <div className="flex flex-col space-y-2 mb-6 max-w-xs mx-auto lg:mx-0">
-                <a href="mailto:hello@zenn.dev" className="group flex items-center space-x-2 hover:text-primary transition-all duration-300 hover:gap-3 text-sm font-semibold">
+                <a href="mailto:email saya" className="group flex items-center space-x-2 hover:text-primary transition-all duration-300 hover:gap-3 text-sm font-semibold">
                   <Mail className="h-4 w-4 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <span>hello@zenn.dev</span>
+                  <span>email saya</span>
                 </a>
                 <a href="https://wa.me/628123456789" className="group flex items-center space-x-2 hover:text-primary transition-all duration-300 hover:gap-3 text-sm font-semibold">
                   <Phone className="h-4 w-4 flex-shrink-0 group-hover:scale-110 transition-transform" />

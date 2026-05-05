@@ -1,9 +1,8 @@
-import { motion } from 'framer-motion'
-import { ExternalLink, Github, Eye } from 'lucide-react'
-import { projects } from '../data/projects'
-import ProjectModal from './ui/ProjectModal'
 import { useState } from 'react'
-import { Project } from '../data/projects'
+import { motion } from 'framer-motion'
+import { Eye } from 'lucide-react'
+import { projects, Project } from '../data/projects'
+import ProjectModal from './ui/ProjectModal'
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -80,4 +79,3 @@ export default function Projects() {
     </section>
   )
 }
-
