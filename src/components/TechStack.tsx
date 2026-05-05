@@ -2,11 +2,11 @@ import { motion } from 'framer-motion'
 import { Database, Code, Smartphone, Server } from 'lucide-react'
 
 const techStack = [
-  { name: 'Laravel', icon: Server, color: 'text-red-500' },
-  { name: 'React TS', icon: Code, color: 'text-blue-500' },
-  { name: 'Inertia.js', icon: Code, color: 'text-purple-500' },
-  { name: 'MySQL', icon: Database, color: 'text-orange-500' },
-  { name: 'REST API', icon: Smartphone, color: 'text-green-500' },
+  { name: 'Laravel', icon: Server, color: 'text-primary' },
+  { name: 'React TS', icon: Code, color: 'text-primary' },
+  { name: 'Inertia.js', icon: Code, color: 'text-primary' },
+  { name: 'MySQL', icon: Database, color: 'text-primary' },
+  { name: 'REST API', icon: Smartphone, color: 'text-primary' },
 ]
 
 export default function TechStack() {
@@ -53,7 +53,7 @@ export default function TechStack() {
                   <tech.icon className={`h-14 w-14 lg:h-16 lg:w-16 mb-4 ${tech.color} drop-shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`} />
                 </motion.div>
                 <motion.span 
-                  className="font-bold text-sm lg:text-base tracking-wide bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent group-hover:scale-105"
+                  className="font-bold text-sm lg:text-base tracking-tight text-foreground group-hover:text-primary transition-colors"
                   initial={{ y: 4, opacity: 0.8 }}
                   whileHover={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.3 }}
@@ -62,7 +62,7 @@ export default function TechStack() {
                 </motion.span>
                 {/* Tech subtitle */}
                 <motion.span 
-                  className="text-xs text-muted-foreground/70 font-medium opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70 font-bold opacity-0 group-hover:opacity-100 transition-opacity mt-1"
                   initial={{ y: 4 }}
                   whileHover={{ y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -79,4 +79,3 @@ export default function TechStack() {
     </section>
   )
 }
-

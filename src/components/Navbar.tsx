@@ -31,7 +31,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
         <div className="flex items-center">
           <a 
             href="#hero" 
-            className="font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:scale-105 transition-transform" 
+            className="font-bold text-xl text-foreground hover:text-primary transition-colors" 
             onClick={(e) => { e.preventDefault(); scrollToSection('hero') }}
           >
             Zenn
