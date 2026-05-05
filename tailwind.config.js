@@ -5,9 +5,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+        sans: ["Poppins", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        business: ["Poppins", "Inter", "ui-sans-serif", "system-ui", "sans-serif"]
       },
       animation: {
+
         "fade-in": "fadeIn 0.5s ease-in-out",
         "slide-up": "slideUp 0.6s ease-out"
       },

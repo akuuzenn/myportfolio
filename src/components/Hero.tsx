@@ -26,7 +26,7 @@ export default function Hero({ onUnlockScroll }: HeroProps) {
           className="space-y-8"
         >
           <div className="inline-block">
-            <span className="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium bg-secondary text-secondary-foreground">
+            <span className="inline-flex items-center px-4 py-1 rounded-full text-sm font-semibold bg-secondary text-secondary-foreground">
               Backend Developer
             </span>
           </div>

@@ -30,23 +30,13 @@ export default function Projects() {
               whileHover={{ y: -10 }}
               className="group bg-background border rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden h-full"
             >
-              <div className="relative mb-6 overflow-hidden rounded-xl group-hover:scale-105 transition-transform duration-300">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover" 
-                  loading="lazy"
-                />
-                {/* Mobile name overlay */}
-                <div className="absolute bottom-3 left-3 right-3 md:hidden bg-background/95 backdrop-blur-sm p-3 rounded-lg">
-                  <h3 className="font-bold text-lg">{project.title}</h3>
-                </div>
+              <div className="h-48 bg-gradient-to-br from-muted to-muted-foreground/20 rounded-xl mb-6 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                <div className="text-5xl opacity-20">🚀</div>
               </div>
               
-              {/* Desktop title */}
-              <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors hidden md:block">{project.title}</h3>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{project.title}</h3>
               
-              <p className="text-muted-foreground mb-4 md:mb-6 leading-relaxed text-sm md:text-base">{project.description}</p>
+              <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
               
               <div className="mb-6">
                 <h4 className="font-semibold mb-3 text-primary">Tech Stack:</h4>
@@ -59,10 +49,10 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="mb-8 hidden md:block">
+              <div className="mb-8">
                 <h4 className="font-semibold mb-3 text-primary">Fitur Utama:</h4>
                 <ul className="space-y-2">
-                  {project.features.slice(0, 3).map((feature) => (
+                  {project.features.map((feature) => (
                     <li key={feature} className="flex items-start">
                       <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                       {feature}
@@ -72,7 +62,7 @@ export default function Projects() {
               </div>
 
               <div className="flex gap-3 pt-4 border-t border-border">
-                <button disabled className="flex-1 text-center py-2 md:py-3 px-4 bg-primary text-primary-foreground rounded-lg font-medium text-sm md:text-base cursor-not-allowed opacity-75">
+                <button disabled className="flex-1 text-center py-3 px-4 bg-primary text-primary-foreground rounded-lg font-semibold cursor-not-allowed opacity-75">
                   Live Demo Soon <ExternalLink className="h-4 w-4 ml-2" />
                 </button>
                 <a href={project.github || '#'} target="_blank" rel="noopener noreferrer" className="p-3 bg-muted rounded-lg hover:bg-muted-foreground/20 transition-colors flex items-center justify-center">

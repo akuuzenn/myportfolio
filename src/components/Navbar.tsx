@@ -43,7 +43,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
             <motion.a
               key={item.id}
               href={`#${item.id}`}
-              className="text-sm font-medium transition-all duration-300 hover:text-primary/80 hover:translate-y-[-2px] relative group"
+              className="text-sm font-semibold transition-all duration-300 hover:text-primary/80 hover:translate-y-[-2px] relative group"
               onClick={(e) => { e.preventDefault(); scrollToSection(item.id) }}
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -92,7 +92,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
                   <motion.a
                     key={item.id}
                     href={`#${item.id}`}
-                    className="text-lg font-semibold py-4 first:pt-0 last:pb-0 hover:text-primary transition-colors block"
+                    className="text-lg font-bold py-4 first:pt-0 last:pb-0 hover:text-primary transition-colors block"
                     onClick={(e) => { e.preventDefault(); scrollToSection(item.id) }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}

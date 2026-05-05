@@ -62,7 +62,7 @@ export default function Contact() {
               >
                 <contact.icon className="h-8 w-8 text-primary mr-4 flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground mb-1">{contact.label}</p>
+                  <p className="text-sm font-semibold text-muted-foreground mb-1">{contact.label}</p>
                   <a href={contact.href} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors">
                     {contact.value}
                   </a>
