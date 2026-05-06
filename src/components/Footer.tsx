@@ -81,9 +81,9 @@ export default function Footer() {
             <div>
               <h4 className="text-sm uppercase tracking-[0.15em] font-bold text-muted-foreground mb-4">Let's Connect</h4>
               <div className="flex flex-col space-y-2 mb-6 max-w-xs mx-auto lg:mx-0">
-                <a href="mailto:halo@zenn.dev" className="group flex items-center space-x-2 hover:text-primary transition-all duration-300 hover:gap-3 text-sm font-semibold">
+                <a href="mailto:orewaazenn@gmail.com" className="group flex items-center space-x-2 hover:text-primary transition-all duration-300 hover:gap-3 text-sm font-semibold">
                   <Mail className="h-4 w-4 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <span>halo@zenn.dev</span>
+                  <span>email saya</span>
                 </a>
                 <a href="https://wa.me/6288242311963" className="group flex items-center space-x-2 hover:text-primary transition-all duration-300 hover:gap-3 text-sm font-semibold">
                   <Phone className="h-4 w-4 flex-shrink-0 group-hover:scale-110 transition-transform" />
@@ -113,7 +113,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="col-span-full pt-4 mt-6 border-t border-border/40">
             <p className="text-xs text-muted-foreground/70 font-semibold text-center tracking-wide">
-              © 2024 Zenn. Dibuat dengan ❤️ menggunakan React, TS & Tailwind.
+              © 2024 Zenn.
             </p>
           </div>
         </div>
