@@ -2,7 +2,11 @@ import { motion } from 'framer-motion'
 import { Instagram, Github, Phone } from 'lucide-react'
 import { Button } from './ui/Button'
 
-export default function Contact() {
+interface ContactProps {
+  onUnlockScroll: () => void;
+}
+
+export default function Contact({ onUnlockScroll }: ContactProps) {
   const contactInfo = [
     {
       icon: Instagram,

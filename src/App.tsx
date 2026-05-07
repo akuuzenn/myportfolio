@@ -72,14 +72,14 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} onUnlockScroll={() => setScrollLocked(false)} />
       <main>
         <Hero onUnlockScroll={() => setScrollLocked(false)} />
         <About />
         <TechStack />
         <Projects />
-        <Contact />
-        <Footer />
+        <Contact onUnlockScroll={() => setScrollLocked(false)} />
+        <Footer onUnlockScroll={() => setScrollLocked(false)} />
       </main>
     </div>
   )

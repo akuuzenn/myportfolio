@@ -1,10 +1,19 @@
 import { motion } from 'framer-motion'
 import { Github, Instagram, Mail, Phone } from 'lucide-react'
 
-export default function Footer() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
+interface FooterProps {
+  onUnlockScroll: () => void
+}
+
+export default function Footer({ onUnlockScroll }: FooterProps) {
+  const handleAction = (targetId: string) => {
+    onUnlockScroll();
+    setTimeout(() => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
   }
 
   return (
@@ -43,27 +52,27 @@ export default function Footer() {
             <h4 className="text-sm uppercase tracking-[0.15em] font-bold text-muted-foreground">Quick Links</h4>
             <nav className="flex flex-col space-y-2">
               <a href="#hero" 
-                 onClick={(e) => { e.preventDefault(); scrollToSection('hero') }}
+                 onClick={(e) => { e.preventDefault(); handleAction('hero') }}
                  className="group text-xs lg:text-sm font-semibold hover:text-primary transition-all duration-300 hover:translate-x-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 hover:after:w-full">
                 Home
               </a>
               <a href="#about" 
-                 onClick={(e) => { e.preventDefault(); scrollToSection('about') }}
+                 onClick={(e) => { e.preventDefault(); handleAction('about') }}
                  className="group text-xs lg:text-sm font-semibold hover:text-primary transition-all duration-300 hover:translate-x-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 hover:after:w-full">
                 About
               </a>
               <a href="#techstack" 
-                 onClick={(e) => { e.preventDefault(); scrollToSection('techstack') }}
+                 onClick={(e) => { e.preventDefault(); handleAction('techstack') }}
                  className="group text-xs lg:text-sm font-semibold hover:text-primary transition-all duration-300 hover:translate-x-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 hover:after:w-full">
                 Tech Stack
               </a>
               <a href="#projects" 
-                 onClick={(e) => { e.preventDefault(); scrollToSection('projects') }}
+                 onClick={(e) => { e.preventDefault(); handleAction('projects') }}
                  className="group text-xs lg:text-sm font-semibold hover:text-primary transition-all duration-300 hover:translate-x-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 hover:after:w-full">
                 Projects
               </a>
               <a href="#contact" 
-                 onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}
+                 onClick={(e) => { e.preventDefault(); handleAction('contact') }}
                  className="group text-xs lg:text-sm font-semibold hover:text-primary transition-all duration-300 hover:translate-x-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 hover:after:w-full">
                 Contact
               </a>

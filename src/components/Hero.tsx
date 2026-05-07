@@ -7,14 +7,18 @@ interface HeroProps {
 }
 
 export default function Hero({ onUnlockScroll }: HeroProps) {
-  const handleUnlockScroll = () => {
-    onUnlockScroll()
-    // Instant scroll to projects after unlock (single click)
+  // Fungsi universal untuk buka kunci dan scroll ke target
+  const handleAction = (targetId: string) => {
+    onUnlockScroll();
+    
+    // Beri jeda sedikit agar App.tsx sempat melepas gaya 'position: fixed'
     setTimeout(() => {
-      const projectsElement = document.getElementById('projects')
-      projectsElement?.scrollIntoView({ behavior: 'smooth' })
-    }, 100)
-  }
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50); // Jeda dipercepat agar terasa lebih responsif
+  };
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-24 pb-32 overflow-hidden">
@@ -53,14 +57,19 @@ export default function Hero({ onUnlockScroll }: HeroProps) {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button className="px-8 py-6 rounded-xl group bg-foreground text-background hover:bg-foreground/90 transition-all" onClick={handleUnlockScroll}>
+            <Button 
+              className="px-8 py-6 rounded-xl group bg-foreground text-background hover:bg-foreground/90 transition-all" 
+              onClick={() => handleAction('projects')}
+            >
               Lihat Projects
               <ArrowDown className="h-4 w-4 ml-2 group-hover:-translate-y-1 transition-transform" />
             </Button>
-            <Button variant="outline" className="px-8 py-6 rounded-xl border-border hover:bg-muted transition-all" asChild>
-              <a href="#contact">
+            <Button 
+              variant="outline" 
+              className="px-8 py-6 rounded-xl border-border hover:bg-muted transition-all"
+              onClick={() => handleAction('contact')}
+            >
                 Hubungi Saya
-              </a>
             </Button>
           </div>
         </motion.div>

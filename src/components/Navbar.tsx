@@ -6,9 +6,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 interface NavbarProps {
   darkMode: boolean
   setDarkMode: (dark: boolean) => void
+  onUnlockScroll: () => void
 }
 
-export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
+export default function Navbar({ darkMode, setDarkMode, onUnlockScroll }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const navItems = [
@@ -19,10 +20,15 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
     { id: 'contact', label: 'Contact' }
   ]
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
-    setMobileOpen(false)
+  const handleAction = (targetId: string) => {
+    onUnlockScroll();
+    setTimeout(() => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
+    setMobileOpen(false); // Close mobile menu after clicking a link
   }
 
   return (
@@ -32,7 +38,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
           <a 
             href="#hero" 
             className="font-bold text-xl text-foreground hover:text-primary transition-colors" 
-            onClick={(e) => { e.preventDefault(); scrollToSection('hero') }}
+            onClick={(e) => { e.preventDefault(); handleAction('hero') }}
           >
             Zenn
           </a>
@@ -43,11 +49,11 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
             <motion.a
               key={item.id}
               href={`#${item.id}`}
-              className="text-sm font-semibold transition-all duration-200 hover:text-primary/80 relative group"
-              onClick={(e) => { e.preventDefault(); scrollToSection(item.id) }}
+              className="text-sm font-semibold transition-all duration-200 hover:text-primary/80 relative group" // Kecepatan animasi tetap
+              onClick={(e) => { e.preventDefault(); handleAction(item.id) }}
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.2, delay: index * 0.03 }}
+              transition={{ duration: 0.2, delay: index * 0.03 }} // Kecepatan animasi tetap
             >
               {item.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300 origin-left"></span>
@@ -58,15 +64,15 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
         <div className="flex items-center space-x-2">
           <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
           <motion.button 
-            className="md:hidden h-10 w-10 p-0 rounded-xl border bg-background hover:bg-muted"
+            className="md:hidden h-10 w-10 p-0 rounded-xl border bg-background hover:bg-muted" // Kecepatan animasi tetap
             onClick={() => setMobileOpen(!mobileOpen)}
             initial={{ scale: 0.95 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.2 }} // Kecepatan animasi tetap
           >
             <motion.div
               animate={{ rotate: mobileOpen ? 90 : 0 }}
-              transition={{ duration: 0.15 }}
+              transition={{ duration: 0.15 }} // Kecepatan animasi tetap
             >
               {mobileOpen ? <X className="h-5 w-5 mx-auto" /> : <Menu className="h-5 w-5 mx-auto" />}
             </motion.div>
@@ -79,10 +85,10 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
         {mobileOpen && (
           <motion.div 
             className="md:hidden bg-background/95 backdrop-blur border-t border-border overflow-hidden"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, height: 0 }} // Kecepatan animasi tetap
+            animate={{ opacity: 1, height: "auto" }} // Kecepatan animasi tetap
+            exit={{ opacity: 0, height: 0 }} // Kecepatan animasi tetap
+            transition={{ duration: 0.2 }} // Kecepatan animasi tetap
           >
             <div className="container mx-auto px-4 py-8">
               <div className="flex flex-col space-y-4 divide-y divide-border">
@@ -91,11 +97,11 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
                     key={item.id}
                     href={`#${item.id}`}
                     className="text-lg font-bold py-4 first:pt-0 last:pb-0 hover:text-primary transition-colors block"
-                    onClick={(e) => { e.preventDefault(); scrollToSection(item.id) }}
+                    onClick={(e) => { e.preventDefault(); handleAction(item.id) }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.15, delay: index * 0.02 }}
+                    transition={{ duration: 0.15, delay: index * 0.02 }} // Kecepatan animasi tetap
                   >
                     {item.label}
                   </motion.a>
