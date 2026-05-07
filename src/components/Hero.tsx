@@ -65,8 +65,7 @@ export default function Hero({ onUnlockScroll }: HeroProps) {
               <ArrowDown className="h-4 w-4 ml-2 group-hover:-translate-y-1 transition-transform" />
             </Button>
             <Button 
-              variant="outline" 
-              className="px-8 py-6 rounded-xl border-border hover:bg-muted transition-all"
+              className="px-8 py-6 rounded-xl border border-border hover:bg-muted transition-all"
               onClick={() => handleAction('contact')}
             >
                 Hubungi Saya

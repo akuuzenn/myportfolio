@@ -85,8 +85,11 @@ export default function Contact({ onUnlockScroll }: ContactProps) {
               <div className="w-24 h-24 bg-gradient-to-r from-primary to-secondary rounded-2xl mx-auto mb-8 shadow-lg group-hover:scale-105 transition-transform" />
               <h3 className="text-2xl font-bold mb-4">Ready for Next Project?</h3>
               <Button className="w-full px-8 py-4 text-lg" onClick={() => {
-                const hero = document.querySelector('#hero')
-                hero?.scrollIntoView({ behavior: 'smooth' })
+                onUnlockScroll();
+                setTimeout(() => {
+                  const hero = document.querySelector('#hero')
+                  hero?.scrollIntoView({ behavior: 'smooth' })
+                }, 50);
               }}>
                 Get In Touch
               </Button>
