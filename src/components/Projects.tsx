@@ -11,9 +11,9 @@ export default function Projects() {
     <section id="projects" className="py-24">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -28,12 +28,11 @@ export default function Projects() {
             {projects.slice(0, 6).map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -8 }}
-                className="flex-none w-80 h-96 bg-gradient-to-br from-background to-muted border border-border/50 rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-primary/10 cursor-pointer group backdrop-blur-md hover:backdrop-blur-xl transition-all duration-500 overflow-hidden"
+                className="flex-none w-80 h-96 bg-card border border-border/50 rounded-2xl shadow-sm hover:shadow-md cursor-pointer group transition-all duration-300 overflow-hidden"
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Image */}

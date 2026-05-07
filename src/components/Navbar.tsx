@@ -43,12 +43,11 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
             <motion.a
               key={item.id}
               href={`#${item.id}`}
-              className="text-sm font-semibold transition-all duration-300 hover:text-primary/80 hover:translate-y-[-2px] relative group"
+              className="text-sm font-semibold transition-all duration-200 hover:text-primary/80 relative group"
               onClick={(e) => { e.preventDefault(); scrollToSection(item.id) }}
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2, delay: index * 0.03 }}
             >
               {item.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300 origin-left"></span>
@@ -59,16 +58,15 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
         <div className="flex items-center space-x-2">
           <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
           <motion.button 
-            className="md:hidden h-10 w-10 p-0 rounded-xl border shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 bg-background hover:bg-muted"
+            className="md:hidden h-10 w-10 p-0 rounded-xl border bg-background hover:bg-muted"
             onClick={() => setMobileOpen(!mobileOpen)}
             initial={{ scale: 0.95 }}
             animate={{ scale: 1 }}
-            whileHover={{ rotate: mobileOpen ? 90 : 0 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            transition={{ duration: 0.2 }}
           >
             <motion.div
               animate={{ rotate: mobileOpen ? 90 : 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.15 }}
             >
               {mobileOpen ? <X className="h-5 w-5 mx-auto" /> : <Menu className="h-5 w-5 mx-auto" />}
             </motion.div>
@@ -81,10 +79,10 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
         {mobileOpen && (
           <motion.div 
             className="md:hidden bg-background/95 backdrop-blur border-t border-border overflow-hidden"
-            initial={{ opacity: 0, height: 0, y: -20 }}
-            animate={{ opacity: 1, height: "auto", y: 0 }}
-            exit={{ opacity: 0, height: 0, y: -20 }}
-            transition={{ duration: 0.3, type: "spring" }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
           >
             <div className="container mx-auto px-4 py-8">
               <div className="flex flex-col space-y-4 divide-y divide-border">
@@ -97,7 +95,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.2, delay: index * 0.05 }}
+                    transition={{ duration: 0.15, delay: index * 0.02 }}
                   >
                     {item.label}
                   </motion.a>
